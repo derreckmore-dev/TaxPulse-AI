@@ -182,9 +182,6 @@ const Header = () => {
 
         {/* User Info */}
         <div className="user-profile">
-          <div className="user-avatar">
-            CM
-          </div>
           <Shield size={16} className="text-secondary" style={{ color: 'var(--color-primary)' }} />
         </div>
       </div>
