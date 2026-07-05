@@ -503,6 +503,13 @@ app.post('/api/workflow/update', (req, res) => {
   });
 });
 
+// Fallback wildcard to serve React app in production
+if (fs.existsSync(frontendDist)) {
+  app.get('*', (req, res) => {
+    res.sendFile(path.join(frontendDist, 'index.html'));
+  });
+}
+
 // Start Server
 app.listen(PORT, () => {
   console.log(`TaxPulse AI Backend running on http://localhost:${PORT}`);
