@@ -1,0 +1,167 @@
+[
+  {
+    "id": "reg-001",
+    "title": "Mandatory E-Invoicing for Businesses with Annual Turnover Above ₹5 Crore (Notification No. 10/2023-Central Tax)",
+    "authority": "Central Board of Indirect Taxes and Customs (CBIC), India",
+    "taxType": "GST (Goods & Services Tax)",
+    "publicationDate": "2023-05-10",
+    "effectiveDate": "2023-08-01",
+    "industriesAffected": ["Manufacturing", "Retail", "E-commerce", "Services", "Logistics", "IT Services"],
+    "riskLevel": "HIGH",
+    "riskScore": {
+      "urgency": "High (Effective in 3 months)",
+      "financialExposure": "High (Non-compliant invoices are invalid, leading to input tax credit loss for clients)",
+      "penaltyRisk": "High (₹10,000 or 100% of tax due, whichever is higher, per incorrect invoice)",
+      "operationalDisruption": "Medium-High (ERP pipeline modification needed)",
+      "complexity": "Medium (API integration with GST Invoice Registration Portal)"
+    },
+    "summary": {
+      "what": "The threshold for mandatory generation of e-invoices has been reduced from ₹10 crore to ₹5 crore. Any business with an aggregate turnover exceeding ₹5 crore in any preceding financial year from 2017-18 onwards must now generate e-invoices for B2B transactions and export invoices.",
+      "why": "To curb tax evasion, improve compliance, automate reporting, and standardize indirect tax audits across small and medium enterprises.",
+      "who": "All registered taxpayers whose aggregate annual turnover exceeds ₹5 crore in any financial year from 2017-18 onwards.",
+      "when": "Mandatorily applicable on all invoices generated on or after August 1, 2023.",
+      "businessImpact": "SMEs must transition from manual/basic invoicing software to GST-compliant automated invoicing tools. Delayed e-invoice generation will lead to payment delays from corporate buyers who cannot claim Input Tax Credit (ITC) without a valid e-invoice (containing IRN and QR code)."
+    },
+    "impactAnalysis": {
+      "industries": "Widespread impact across B2B manufacturers, wholesalers, distributors, and service providers with turnovers between ₹5cr and ₹10cr.",
+      "functions": "Finance, Accounts Receivable, Sales Operations, IT / Systems.",
+      "finance": "Possible cash flow bottlenecks due to buyers withholding payments for non-compliant invoices.",
+      "tax": "Mandatory reporting of B2B sales in GSTR-1 via Invoice Registration Portal (IRP). Double reporting reconciliation needed.",
+      "accounting": "Real-time ledger updates required upon IRN generation. Invoices must print QR codes.",
+      "erpSap": "Requires updating SAP SD (Sales and Distribution) and FI (Financial Accounting) configurations. Need to set up/verify API connections to Government authorized GSPs (GST Suvidha Providers) or directly to IRP. SAP tax codes and invoice layouts must display IRN and QR Code fields.",
+      "operational": "Billing teams must be trained on handling failed IRN requests, cancelled e-invoices (must be done within 24 hours), and credit notes."
+    },
+    "recommendations": [
+      "Identify if aggregate turnover in any financial year from 2017-18 to 2022-23 exceeded ₹5 crore.",
+      "Update SAP/ERP configuration to integrate with e-invoice APIs or GSP portals.",
+      "Verify and clean Master Customer data, specifically GSTINs, to prevent IRN generation failures.",
+      "Establish a standard operating procedure (SOP) for invoice cancellation and credit notes under e-invoicing rules.",
+      "Train the accounts receivable and billing operations staff on the new digital invoicing workflow.",
+      "Inform clients and buyers about readiness to ensure seamless Input Tax Credit (ITC) transfers."
+    ],
+    "timeline": {
+      "immediate": [
+        "Aggregate turnover audit across previous financial years to confirm applicability.",
+        "Assess current ERP invoicing capabilities (SAP, Tally, Oracle, etc.)."
+      ],
+      "sevenDays": [
+        "Register on the sandbox e-invoice portal for API testing.",
+        "Initiate configuration changes in SAP/ERP systems."
+      ],
+      "thirtyDays": [
+        "Complete dry-run testing of API integrations with mock invoices.",
+        "Conduct employee training sessions on e-invoicing errors and resolution."
+      ],
+      "longTerm": [
+        "Build periodic reconciliation routines between ERP records, GSTR-1, and e-invoice data."
+      ]
+    },
+    "checklist": [
+      {"task": "Verify applicability by calculating aggregate turnover", "status": "Pending", "department": "Finance", "dueDate": "Immediate"},
+      {"task": "Select GSP (GST Suvidha Provider) or ERP connector", "status": "Pending", "department": "IT / ERP", "dueDate": "Immediate"},
+      {"task": "Create developer credentials on the sandbox portal", "status": "Pending", "department": "IT / ERP", "dueDate": "7 Days"},
+      {"task": "Map IRN and QR Code fields to invoice PDF layout", "status": "Pending", "department": "IT / ERP", "dueDate": "7 Days"},
+      {"task": "Conduct end-to-end sandbox testing of invoice generation", "status": "Pending", "department": "IT / ERP", "dueDate": "30 Days"},
+      {"task": "Draft and release company-wide billing SOP", "status": "Pending", "department": "Tax & Compliance", "dueDate": "30 Days"},
+      {"task": "Execute client communication regarding e-invoice transition", "status": "Pending", "department": "Sales Operations", "dueDate": "30 Days"}
+    ],
+    "faqs": [
+      {
+        "question": "Is e-invoicing mandatory for B2C (Business-to-Consumer) transactions?",
+        "answer": "No, e-invoicing is currently mandatory only for B2B (Business-to-Business) transactions and exports. B2C invoices do not require an IRN (Invoice Reference Number) but may require a dynamic QR code for digital payments if turnover exceeds ₹500 crore."
+      },
+      {
+        "question": "Can an e-invoice be amended on the GST portal?",
+        "answer": "No, an e-invoice cannot be modified on the Invoice Registration Portal (IRP). If there is an error, the e-invoice must be cancelled within 24 hours of generation. After 24 hours, the only way to adjust it is by issuing a credit/debit note on the regular GST portal."
+      },
+      {
+        "question": "What happens if we fail to generate an e-invoice?",
+        "answer": "An invoice without an IRN and QR code is legally invalid under GST rules. The buyer cannot claim Input Tax Credit (ITC) based on an invalid invoice, and you may face a penalty of ₹10,000 or the tax amount due, whichever is higher, per invoice."
+      }
+    ],
+    "history": {
+      "previousVersionId": "reg-001-prev",
+      "previousTitle": "Mandatory E-Invoicing for Businesses with Annual Turnover Above ₹10 Crore (Notification No. 17/2022-Central Tax)",
+      "comparisonText": "The primary modification is the reduction of the aggregate turnover threshold for mandatory e-invoicing. Under Notification No. 17/2022, the threshold was ₹10 crore. The new Notification No. 10/2023 lowers this to ₹5 crore. All other operational rules, including the 24-hour cancellation window, B2B scope, and mandatory QR codes, remain identical. Companies with turnover between ₹5 crore and ₹10 crore are newly brought into scope and must configure their systems immediately."
+    }
+  },
+  {
+    "id": "reg-002",
+    "title": "Revision of Corporate Income Tax Rate for New Domestic Manufacturing Units (Section 115BAB Amendment)",
+    "authority": "Ministry of Finance, Income Tax Department, India",
+    "taxType": "Corporate Income Tax",
+    "publicationDate": "2023-09-15",
+    "effectiveDate": "2024-04-01",
+    "industriesAffected": ["Manufacturing", "Automobile", "Chemicals", "Electronics", "Textiles"],
+    "riskLevel": "MEDIUM",
+    "riskScore": {
+      "urgency": "Medium (Effective for Assessment Year 2024-25)",
+      "financialExposure": "High (Substantial tax savings if met, but strict penalty exposures if criteria are violated)",
+      "penaltyRisk": "Medium (Re-computation of taxes at standard rate of 30% plus interest if qualification fails)",
+      "operationalDisruption": "Low (Purely administrative and accounting selection)",
+      "complexity": "High (Requires careful compliance with asset usage and non-transfer rules)"
+    },
+    "summary": {
+      "what": "Clarifications and extensions are provided to the concessional 15% corporate tax rate (effective tax rate approx 17.16% including surcharge and cess) for newly incorporated domestic manufacturing companies under Section 115BAB.",
+      "why": "To promote domestic manufacturing under the 'Make in India' initiative and attract greenfield industrial investments.",
+      "who": "Newly incorporated domestic manufacturing companies registered on or after October 1, 2019, commencing production before March 31, 2024.",
+      "when": "Applicable for Assessment Year 2024-25 and subsequent years.",
+      "businessImpact": "Allows companies to pay a concessional flat tax of 15% instead of 22% or 25%. However, they must forego all other deductions, exemptions, and MAT credit. Crucial for companies finalizing investment structures."
+    },
+    "impactAnalysis": {
+      "industries": "Applies strictly to new manufacturing operations. Service, software development, mining, and packaging firms are excluded.",
+      "functions": "Finance, Corporate Tax, Legal, Board of Directors.",
+      "finance": "Improves Net Profit Margin (PAT) and cash flow projections for new factories. Lowers cost of capital.",
+      "tax": "Forfeiture of deductions under sections like 32AD (investment allowance), 33AB, 35 (R&D), and 10AA (SEZ). Elimination of Minimum Alternate Tax (MAT) calculations.",
+      "accounting": "Adjustment of Deferred Tax Asset (DTA) and Deferred Tax Liability (DTL) valuations based on the 15% tax base instead of 22% or 30%.",
+      "erpSap": "Requires setting up a new separate legal entity or profit center configuration in SAP. Tax rate tables in SAP FI-CO must be adjusted for the new entity to compute provisions at 15% flat + surcharges.",
+      "operational": "Stringent monitoring of second-hand machinery usage (must be under 20% of total machinery value) and non-diversion of existing businesses."
+    },
+    "recommendations": [
+      "Perform a comparative cost-benefit analysis between Section 115BAA (22% tax with MAT credit) and Section 115BAB (15% tax, no MAT credit).",
+      "Ensure the new unit does not use second-hand plant and machinery exceeding 20% of the total value.",
+      "File Form 10-ID online on or before the due date for filing the first Income Tax Return.",
+      "Adjust Deferred Tax calculations in the books of accounts before year-end closure.",
+      "Configure separate Ledger accounts and Tax tables in SAP/ERP for the new manufacturing plant."
+    ],
+    "timeline": {
+      "immediate": [
+        "Audit machinery purchase logs to verify second-hand assets ratio.",
+        "Review corporate structure and verify date of incorporation."
+      ],
+      "sevenDays": [
+        "Engage tax advisory to compute DTA/DTL impacts."
+      ],
+      "thirtyDays": [
+        "Update ERP/SAP accounting charts for separate entity calculations.",
+        "Prepare draft projections comparing 15% vs 22% tax scenarios."
+      ],
+      "longTerm": [
+        "Filing of Form 10-ID with the tax department.",
+        "Annual monitoring of transfer pricing / transfer of profits between group entities to prevent tax evasion assessments."
+      ]
+    },
+    "checklist": [
+      {"task": "Verify company registration date is after Oct 1, 2019", "status": "Pending", "department": "Legal", "dueDate": "Immediate"},
+      {"task": "Compute second-hand machinery percentage", "status": "Pending", "department": "Finance", "dueDate": "Immediate"},
+      {"task": "Engage statutory auditors on DTA/DTL adjustment", "status": "Pending", "department": "Tax & Compliance", "dueDate": "7 Days"},
+      {"task": "Create new SAP company code/tax rate mappings", "status": "Pending", "department": "IT / ERP", "dueDate": "30 Days"},
+      {"task": "File Form 10-ID online with IT return", "status": "Pending", "department": "Tax & Compliance", "dueDate": "Long-Term"}
+    ],
+    "faqs": [
+      {
+        "question": "Can an existing company claim the 15% rate by setting up a new division?",
+        "answer": "No. The concessional rate is only available to a newly incorporated domestic company. It cannot be formed by splitting up or reconstructing an existing business, nor can it use second-hand machinery exceeding 20% of its total asset value."
+      },
+      {
+        "question": "Does MAT (Minimum Alternate Tax) apply to companies opting for 115BAB?",
+        "answer": "No. MAT provisions under Section 115JB do not apply to companies opting for Section 115BAB. Furthermore, accumulated MAT credits from previous years cannot be carried forward or set off."
+      }
+    ],
+    "history": {
+      "previousVersionId": "reg-002-prev",
+      "previousTitle": "Section 115BAB Baseline Enactment",
+      "comparisonText": "The amendment clarifies that companies engaged in the development of software or printing of books are not eligible for the definition of 'manufacture' under this section. It also extends the deadline for commencing production to March 31, 2024, providing a relief window due to earlier supply chain delays."
+    }
+  }
+]
