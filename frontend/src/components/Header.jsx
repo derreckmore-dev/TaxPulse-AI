@@ -185,10 +185,6 @@ const Header = () => {
           <div className="user-avatar">
             CM
           </div>
-          <div className="user-info">
-            <span className="user-name">Advisor Atharva</span>
-            <span className="user-role">Lead Compliance Consultant</span>
-          </div>
           <Shield size={16} className="text-secondary" style={{ color: 'var(--color-primary)' }} />
         </div>
       </div>
