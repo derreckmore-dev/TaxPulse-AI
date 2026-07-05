@@ -1,9 +1,11 @@
 services:
   - type: web
     name: taxpulse-ai
-    env: docker
+    env: node
     plan: free
     region: singapore
+    buildCommand: "npm install && npm install --prefix backend && npm install --prefix frontend && npm run build --prefix frontend"
+    startCommand: "npm start --prefix backend"
     envVars:
       - key: PORT
-        value: 8080
+        value: 3000
