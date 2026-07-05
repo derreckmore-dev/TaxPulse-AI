@@ -10,6 +10,7 @@ import CompareView from './components/CompareView';
 import WorkflowView from './components/WorkflowView';
 import CalculatorView from './components/CalculatorView';
 import AnalyticsView from './components/AnalyticsView';
+import TeamView from './components/TeamView';
 
 function App() {
   const [activeView, setActiveView] = useState('dashboard');
@@ -32,6 +33,8 @@ function App() {
         return <CalculatorView />;
       case 'analytics':
         return <AnalyticsView />;
+      case 'team':
+        return <TeamView />;
       default:
         return <DashboardView setActiveView={setActiveView} />;
     }

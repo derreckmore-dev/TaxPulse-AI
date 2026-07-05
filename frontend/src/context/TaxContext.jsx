@@ -33,6 +33,51 @@ export const TaxProvider = ({ children }) => {
     }
   ]);
   const [loading, setLoading] = useState(true);
+  const [teamMembers, setTeamMembers] = useState([
+    {
+      id: 'u-1',
+      name: 'Advisor Atharva',
+      email: 'atharva@company.com',
+      role: 'Lead Compliance Consultant',
+      status: 'Active',
+      lastActive: 'Now'
+    },
+    {
+      id: 'u-2',
+      name: 'Angela Mathew',
+      email: 'angelamathew0823@gmail.com',
+      role: 'Compliance Officer',
+      status: 'Active',
+      lastActive: '5 mins ago'
+    },
+    {
+      id: 'u-3',
+      name: 'Jocelyn Mathew Samuel',
+      email: 'jocelynmathewsamuel@gmail.com',
+      role: 'Tax Consultant',
+      status: 'Active',
+      lastActive: '2 hours ago'
+    }
+  ]);
+
+  const addTeamMember = (newMember) => {
+    setTeamMembers(prev => [...prev, newMember]);
+    addNotification({
+      title: `Invited new team member: ${newMember.name}`,
+      type: 'info'
+    });
+  };
+
+  const removeTeamMember = (id) => {
+    const member = teamMembers.find(t => t.id === id);
+    setTeamMembers(prev => prev.filter(t => t.id !== id));
+    if (member) {
+      addNotification({
+        title: `Removed access for: ${member.name}`,
+        type: 'warning'
+      });
+    }
+  };
 
   // Fetch regulations and workflow tasks from backend
   const refreshData = async () => {
@@ -155,7 +200,10 @@ export const TaxProvider = ({ children }) => {
       markNotificationsAsRead,
       addNotification,
       refreshData,
-      loading
+      loading,
+      teamMembers,
+      addTeamMember,
+      removeTeamMember
     }}>
       {children}
     </TaxContext.Provider>

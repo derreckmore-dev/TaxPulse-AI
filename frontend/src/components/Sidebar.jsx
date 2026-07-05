@@ -1,4 +1,3 @@
-import React from 'react';
 import { 
   LayoutDashboard, 
   FileSearch, 
@@ -8,7 +7,8 @@ import {
   CheckSquare, 
   Calculator, 
   BarChart3, 
-  Activity 
+  Activity,
+  Users
 } from 'lucide-react';
 
 const Sidebar = ({ activeView, setActiveView }) => {
@@ -20,7 +20,8 @@ const Sidebar = ({ activeView, setActiveView }) => {
     { id: 'compare', name: 'Compare Circulars', icon: GitCompare },
     { id: 'workflow', name: 'Workflow Manager', icon: CheckSquare },
     { id: 'calculator', name: 'ROI & Risk Calculator', icon: Calculator },
-    { id: 'analytics', name: 'Analytics Board', icon: BarChart3 }
+    { id: 'analytics', name: 'Analytics Board', icon: BarChart3 },
+    { id: 'team', name: 'Team Settings', icon: Users }
   ];
 
   return (
