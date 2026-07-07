@@ -29,4 +29,5 @@ jobs:
         env:
           HF_TOKEN: ${{ secrets.HF_TOKEN }}
         run: |
-          git push --force https://derreckmore-dev:$HF_TOKEN@huggingface.co/spaces/derreckmore-dev/TaxPulse-AI main
+          HF_USERNAME=$(curl -s -H "Authorization: Bearer $HF_TOKEN" https://huggingface.co/api/whoami-v2 | jq -r '.name')
+          git push --force https://$HF_USERNAME:$HF_TOKEN@huggingface.co/spaces/$HF_USERNAME/TaxPulse-AI main
