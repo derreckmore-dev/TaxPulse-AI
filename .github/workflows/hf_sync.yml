@@ -15,9 +15,18 @@ jobs:
           fetch-depth: 0
           lfs: true
 
+      - name: Auto-Create Hugging Face Space
+        env:
+          HF_TOKEN: ${{ secrets.HF_TOKEN }}
+        run: |
+          # Programmatically create the space repository if it does not exist
+          curl -s -X POST https://huggingface.co/api/repos/create \
+            -H "Authorization: Bearer $HF_TOKEN" \
+            -H "Content-Type: application/json" \
+            -d '{"name": "TaxPulse-AI", "type": "space", "sdk": "docker", "private": false}' || true
+
       - name: Push to Hugging Face Space
         env:
           HF_TOKEN: ${{ secrets.HF_TOKEN }}
         run: |
-          # Replace 'derreckmore-dev/TaxPulse-AI' with your exact Hugging Face Space username and Space name if different
           git push --force https://derreckmore-dev:$HF_TOKEN@huggingface.co/spaces/derreckmore-dev/TaxPulse-AI main
