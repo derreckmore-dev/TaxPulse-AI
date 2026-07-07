@@ -1,0 +1,3 @@
+# This is a placeholder requirements.txt file.
+# The TaxPulse AI application is built and executed inside a Node.js Docker container.
+# No python dependencies are required on the host level.

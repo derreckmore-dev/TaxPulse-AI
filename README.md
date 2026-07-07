@@ -1,3 +1,13 @@
+---
+title: TaxPulse AI
+emoji: 💼
+colorFrom: blue
+colorTo: indigo
+sdk: docker
+app_port: 7860
+pinned: false
+---
+
 # TaxPulse AI – Intelligent Tax Regulation Monitoring & Compliance Agent
 
 TaxPulse AI is a premium enterprise-grade AI web application tailored for tax consultants, compliance officers, finance teams, and advisory firms (like EY, Deloitte, PwC, KPMG) to autonomously monitor tax law changes, analyze business impacts, and coordinates compliance actions.

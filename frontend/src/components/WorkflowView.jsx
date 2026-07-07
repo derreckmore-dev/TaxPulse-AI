@@ -35,6 +35,14 @@ const WorkflowView = () => {
     }
   };
 
+  const getStatusColor = (status) => {
+    switch (status) {
+      case 'Completed': return 'var(--color-success)';
+      case 'In Progress': return 'var(--color-warning)';
+      default: return 'var(--text-secondary)';
+    }
+  };
+
   const handleStatusChangeTrigger = (taskId, newStatus) => {
     setSelectedTaskId(taskId);
     setTargetStatus(newStatus);

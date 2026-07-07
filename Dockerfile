@@ -21,6 +21,6 @@ COPY backend/ ./backend/
 COPY --from=frontend-builder /app/frontend/dist ./frontend/dist
 
 # Expose port and start
-ENV PORT=8080
-EXPOSE 8080
+ENV PORT=7860
+EXPOSE 7860
 CMD ["node", "backend/server.js"]
